@@ -154,18 +154,77 @@
     - confidence-weight socre has best results
 
 ### Abhijit Das: 3D CNN Architectures and Attention Mechanisms for Deepfake Detection
-
+- deepfakse being preceived as real or real videos being misinterpreted as fake
+- using attention mechanisms for other 3D CNN deepfake detections networks
+- attention mechanisms
+    - squeez and excitation block
+    - non-local block-based self-attention block
+    - timesformer
 
 ### Huy Nguyen: Capsule-Forensics Networks for Deepfake Detection
+- how to improve results of deep neural networks
+    - ResNet -> more layers
+    - WidthNet -> bigger layers
+    - DenseNet -> more connections among layers
+    - Two-Stream Network
+- bigger networks consume more resources
+- capsule network
+    - mostly used in computer vison
+    - each capsule is a CNN learning some specific representation
+    - for fonrensic need modification for learning spoofing artifacts or irregular noise
+    - light-weight but powerfull network
 
 ### Liming Jiang: DeepFakes Detection: the DeeperForensics Dataset and Challenge
+- UADFV, DeepFake-TIMIT, Celeb-DF, FaceForensics++, DFDC Preview Dataset, DeeperForensics-1.0
+- quality of dataset depends
+    - quantity
+    - different poses, expresions, lightning, ...
+- new face swaping method DF-VAE
+- DeeperForensics Challange 2020 for other teams with created DeeperForensics-1.0 dataset
+    - investigating submited approaches
 
 ### Edward J. Delp: Deepfake Detection Using Multiple Data Modalities
+- video is not accessible
 
 ### Akshay Agrawal: On the Robustness of Facial Retouching and Alteration Detection Algorithms
+- facial alternation
+    - for advertisment, social media, personal identification documents, fake news
+    - unintentional -> retouching, make-up
+    - intentional -> deepfake, morphing
+- retouchuning and alternation datasets
+    - ND-IIITD, Celebrity, MDRF, SWAPPED, UADFV, WildDeepFake, ...
+- cross domain, cross manipulation, cross ethnicity
+    - different detection methods for retouching vs morphing
+- detecting manipulation in cross experimental setting is still an open research problem
 
 ### Kathrin Laas-Mikko: Promises, Social, and Ethical Challenges with Biometrics in Remote Identity Onboarding
+- new standards for remote idenity verification are being created
+- remote onboarding
+    - human assisted ("simular" to face-to-face)
+    - automated remote identity verification
+    - combined video identity verification
+- risks + harms
+    - folsifed evidende, identity theft, phising, user rejection, false acceptance, ...
+- practical identity -> biometrical info linked to the person + his/her rigths, ownership, benefits, access, ...    
+- privacy is a problem
+- increasing quality of fakes is another problem
+- social barierss will not allow accept all new technologies (higher awarnes does not result in higher acceptance)
 
 ### Catherine Jasserand: Deep fakes: Emerging Legal, Ethical, And Societal Challenges
+- deepfakes can be used in medical field for good
+    - creating bigger testing datasets
+    - mental therapy -> creating videos with specific info or story
+    - ALS patients loosing voice -> new way of communication
+- risks/threads
+    - political manipulation
+    - inpersonation
+    - frauds
+- legal changes
+    - no single legislation and no single way how to protect individuals
+    - more rules at various area
+- right to privacy
+    - how to handle creating non-existing perosn that looks like as some living person?
+    - GDPR covers other cases in a way
 
 ### Ruben Vera: Future Trends in Digital Face Manipulation and Detection
+- video is not accessible
