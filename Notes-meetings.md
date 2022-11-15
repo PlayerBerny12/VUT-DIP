@@ -7,5 +7,5 @@
 - 2,5 měsíce na 30 stránek
 
 ## Meeting 26-10-2022
-- sdílený dokument s  poznámkami
+- sdílený dokument s poznámkami
 - založit overleaf a začít psát
