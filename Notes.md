@@ -4,8 +4,12 @@
     - čas inicializace metody -> uchovávat v quazi stavu nebo loadovat při kařdém requestu       
 - poloautomatický/plně automatický framework pro testování metod
     - vložení datasetu a otestování všech metod nad tímto datasetem
-    - možnost kompltně změnit téma na toto...
 
+- návrh konternizce
+    1. příjmutí požadavku - soubor, link na obrázek, link na video, ...
+    2. zpracování souboru (př. rozsekání na 2s framy, ...)
+    3. vrstva konteinerů pro detekci
+    4. shromáždění výsledků (optinal)
 
 - poznámka pod čarou
     - state of the art
@@ -23,6 +27,7 @@
 
 ## Tooly pro generování datasetů
 - YourTTS, MozilaTTS, FragmentVC, StarGANv2
+https://docs.google.com/spreadsheets/d/1cl0hMsWt4WBCka5ta2Ilqfjk8Z2_RoD_XxRKsXluMLc/edit#gid=0
 
 ## Datasety
 - https://bil.eecs.yorku.ca/datasets/

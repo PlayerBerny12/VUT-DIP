@@ -9,3 +9,8 @@
 ## Meeting 26-10-2022
 - sdílený dokument s poznámkami
 - založit overleaf a začít psát
+- návrh kolikv vrstev a jakých bude framework mít
+
+## Meeting 16-11-2022
+- půlka ledna odevzdání
+- rozepsat analýzu před architekturou
