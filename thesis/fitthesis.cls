@@ -4,7 +4,7 @@
 % Autoři / Authors: 2007 Zdeněk Vašíček, 2008 Michal Bidlo, 2019 Jaroslav Dytrych
 % ----------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{fitthesis}[2017/11/07 Sablona pro BP/DP]
+\ProvidesClass{fitthesis}[2022/11/14 Sablona pro BP/DP]
 
 %Vychozi hodnoty parametru / Default values for parameters
 \newif\ifczech \let\ifczech\iftrue
@@ -239,7 +239,7 @@
  \ifEqString{#1}{SP}{Term project}{\@projecttype@EN}%
  \ifEqString{#1}{SP}{Vedoucí práce}{\@supervisor@CS}%
 % \ifEqString{#1}{SP}{Vedúci práce}{\@supervisor@SK}%
- \ifEqString{#1}{BP}{Vedoucí práce}{\@supervisor@SK}%
+ \ifEqString{#1}{SP}{Vedoucí práce}{\@supervisor@SK}%
  \ifEqString{#1}{SP}{Supervisor}{\@supervisor@EN}%
  \ifEqString{#1}{DP}{Diplomová práce}{\@projecttype@CS}%
 % \ifEqString{#1}{DP}{Diplomová práca}{\@projecttype@SK}%
@@ -274,9 +274,15 @@
 % \ifEqString{#1}{DT}{Školiteľ}{\@supervisor@SK}%
  \ifEqString{#1}{DT}{Školitel}{\@supervisor@SK}%
  \ifEqString{#1}{DT}{Supervisor}{\@supervisor@EN}%
+ \ifEqString{#1}{PP}{Projektová praxe}{\@projecttype@CS}%
+ \ifEqString{#1}{PP}{Projektová prax}{\@projecttype@SK}%
+ \ifEqString{#1}{PP}{Project practice}{\@projecttype@EN}%
+ \ifEqString{#1}{PP}{Vedoucí}{\@supervisor@CS}%
+ \ifEqString{#1}{PP}{Vedúcí}{\@supervisor@SK}%
+ \ifEqString{#1}{PP}{Supervisor}{\@supervisor@EN}%
  \ifnasel
  \else
-   \typeout{Spatny typ projektu! Moznosti: BP, SP, DP, DR, DT, DA}\set@project{BP}
+   \typeout{Spatny typ projektu! Moznosti: BP, SP, DP, DR, DT, DA, PP}\set@project{BP}
  \fi
 }
 
@@ -677,27 +683,32 @@ Management}{\@fit@EN}%
 % Declaration, acknowledgement \makedeclaration
 %-----------------------------------------------------------------------------
 \newcommand\makedeclaration{
-\thispagestyle{empty}%
+\pagestyle{empty}%
+
+  
 \iftoggle{long_dectitle}{
   \mktxtl@b{18}{\@dectitlelen}{\@title}
 }{
   \mktxt@b{18}{\@title}
 }
 
-\vspace{10mm}
-\ifslovak
-  \mktxt@b{16}{\@tdecl@SK}
+\ifx\@declaration\@empty
 \else
-  \mktxt@b{16}{\ifczech\@tdecl@CS\else\@tdecl@EN\fi}
-\fi
+  \vspace{10mm}
+  \ifslovak
+    \mktxt@b{16}{\@tdecl@SK}
+  \else
+    \mktxt@b{16}{\ifczech\@tdecl@CS\else\@tdecl@EN\fi}
+  \fi
 
-\noindent\@declaration
+  \noindent\@declaration
 
   \begin{flushright}
       \makebox[4cm]{\dotfill} \\
       \@author\\
       \@date
   \end{flushright}
+\fi 
 
 \ifx\undefined\@acknowledgment
 \else
@@ -714,12 +725,11 @@ Management}{\@fit@EN}%
 
 %===================================================
 \iftwoside
-  \pagestyle{empty}
   \cleardoublepage
-  \pagestyle{plain}
 \else
   \newpage
 \fi
+\pagestyle{plain}
 }
 
 %-----------------------------------------------------------------------------
@@ -1048,7 +1058,21 @@ Management}{\@fit@EN}%
 \else
   \makeextendedabstract
 \fi
-\makedeclaration
+
+\newtoggle{declaration_page}
+\togglefalse{declaration_page}
+\ifx\@declaration\@empty
+\else
+  \toggletrue{declaration_page}
+\fi
+\ifx\undefined\@acknowledgment
+\else
+  \toggletrue{declaration_page}
+\fi
+\iftoggle{declaration_page}{
+  \makedeclaration
+}{}
+
 \clearpage
 \setcounter{tocdepth}{2}\setcounter{page}{1}
 }
