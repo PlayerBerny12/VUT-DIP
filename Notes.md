@@ -25,6 +25,15 @@
 - rozchození (řeč - fixní délky - 2s, obraz - případný scaling, oříznutí)
 - https://github.com/topics/deepfake-detection
 
+Video:
+- https://github.com/selimsef/dfdc_deepfake_challenge
+- https://github.com/dessa-oss/DeepFake-Detection
+- https://github.com/deepware/deepfake-scanner
+- https://github.com/bbvanexttechnologies/fakeVideoForensics
+Audio:
+- https://github.com/MarkHershey/AudioDeepFakeDetection
+- https://github.com/piotrkawa/specrnet
+
 ## Tooly pro generování datasetů
 - YourTTS, MozilaTTS, FragmentVC, StarGANv2
 https://docs.google.com/spreadsheets/d/1cl0hMsWt4WBCka5ta2Ilqfjk8Z2_RoD_XxRKsXluMLc/edit#gid=0

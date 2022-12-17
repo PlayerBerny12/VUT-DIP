@@ -1243,6 +1243,7 @@ Management}{\@fit@EN}%
 \ifczech
   \usepackage{ae}
 \fi
+\usepackage{subcaption}
 
 %--------------------------------------------------------
 % Oprava pro Čechy a Slováky -- vyžaduje aktuální balíčky!

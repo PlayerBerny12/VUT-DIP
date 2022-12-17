@@ -14,3 +14,10 @@
 ## Meeting 16-11-2022
 - půlka ledna odevzdání
 - rozepsat analýzu před architekturou
+
+## Meeting 07-12-2022
+- funkční/nefunkční požadavky
+- detekční metody jaké využiju a reflektovat je v architektuře
+    - seznam z jakých se vybíralo (co, jak a proč)
+- parametrizace detekčních metod, přetrénování na novém datasetu
+- kvalita výstupu je spjatá s aktuálními metodamy a trénovacím datasetem

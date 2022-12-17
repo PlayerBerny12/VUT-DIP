@@ -1,8 +1,10 @@
 # Notes materials
 
-## Deepfakes workshop
+## Handbook Of Digital Face Manipulation - Deepfakes workshop (july 2022)
 - https://link.springer.com/book/10.1007/978-3-030-87664-7
 - https://eab.org/events/program/291
+
+- https://eab.org/events/digital-face-manipulation-detection-2022.html
 
 ### Ruben Tolosana: An Introduction to Digital Face Manipulation
 - traditional -> time consuming, high skill level (special tools needed -> Photoshop)
@@ -228,3 +230,17 @@
 
 ### Ruben Vera: Future Trends in Digital Face Manipulation and Detection
 - video is not accessible
+
+## Luisa Verdoliva: Media Forensics and DeepFakes: An Overview (august 2022)
+
+https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9115874
+
+### Introduction
+- usage in photography, video-games, VR, movie production
+- now videos of well-known actors or politicans (original + fake), usecase to prodcuce fake video without publisihing original one (blackmaling, security attacks, ...)
+- media forensics is there for 15 years developing techniques to spot fakse (before Photoshope, Adobe AfterEffects, ...) with growing attention (now deepfakes)
+- following the MediFor taxonomy, digital media verification should look for physical integrity, digital integrity, and semantic integrity
+- fast developing area over last years (integrity - watermarking, deep learning forensics tools, blockchains, ...)
+    - despite the continuous research efforts and the numerous forensic tools developed in the past, the advent of deep learning is changing the rules of the game and asking multimedia forensics for new and timely solutions
+
+## Anton Firc, Kamil Malinka: The dawn of a text-dependent society: deepfakes as a threat to speech verification systems
