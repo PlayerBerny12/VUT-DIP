@@ -1,7 +1,9 @@
 \chapter{Introduction}
 
 - deepfake is buzzword (no agreed-upon technical definition)
-- ...
+- still growing thread for sociaty
+- huge research over past years
+- reason for creating this framework
 
 \chapter{Deepfakes}
 
@@ -15,18 +17,18 @@ It is putting huge pressure on researchers to develop new forensics tools or any
 
 The human ability to recognize fake materials from the originals is in contradiction to their quality. Korshunov and Marcel confirmed this in their research. They created a questionnaire containing several videos, and the subject (interviewee) had to answer after watching the video whether the person in the video was genuine, fake, or they are uncertain. The videos were manually divided into five categories (very easy, easy, moderate, difficult, and very difficult, original). 
 
-Videos were split into several categories manually by researchers probably without usage of any metrics but based on their personal feelings, and ANOVA test shows there is an overlap in several categories, so several videos could be moved to different category. However, the categories are still significantly different. 
+Videos were split into several categories manually by researchers probably without usage of any metrics but based on their experience and feelings. Afterwards ANOVA test shows there is an overlap in several categories, so several videos could be moved to different category. However, the categories are still significantly different. 
 
-The results of test in Fig. \ref{fig:subjective_answers} certainly demonstrate that people's recognition ability decreases significantly as the quality of deepfakes increases. Also, the audience of this test knows they are looking for fakes, otherwise we can expect worse results if there will be unsuspected audience (for example: deepfakes on social media). It is quite alarming that the correct answers in the category of “very easy” reach only 71,1 \%. The quality of deepfake increases over time, thus it can be expected that human recognition ability will continue to decrease. \cite{TheThreatOfDeepfakes}
+The results of test in Fig. \ref{fig:subjective_answers} certainly demonstrate that people's recognition ability decreases significantly as the quality of deepfakes increases. Also, the audience of this test knows they are looking for fakes, otherwise we can expect worse results if there will be unsuspected audience (e.g. deepfakes on social media). It is quite alarming that the correct answers in the category of “very easy” reach only 71,1 \%. The quality of deepfake increases over time, thus it can be expected that human recognition ability will continue to decrease. \cite{TheThreatOfDeepfakes}
 
 \begin{figure}[H]
-    \begin{subfigure}[h]{.45\linewidth}
+    \begin{subfigure}[h]{.475\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{other-fig/subjective_answers_a.png}
         \caption{Subjective answers}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[h]{.45\linewidth}
+    \begin{subfigure}[h]{.475\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{other-fig/subjective_answers_b.png}
         \caption{ANOVA test}
@@ -41,16 +43,15 @@ Another research tested only recognition of audio tracks and they were comparing
 
 Humans are not good at recognizing deepfakes, but “why should we be worried?”. Almost every technology humankind created could be used for good or bad – deepfake is no exception. There are plenty different deepfake categories, and each has its own attack vector or use case. This section is describing potential risks of those categories and their closer description will be covered in next section \ref{section:deepfakes_creation}.
 
-Deepfakes are about gaining someone’s trust or influence him. For the last couple of years there has been an increasing trend to scam people, mostly via phone or computer. Targeting only one person/victim, for example, to gain their money or information. Those attacks are getting better and more credible and using deepfake to impersonate close friend of victim could be next step how to improve it, if it is not already happening. \cite{HybridVishingAttacksSkyrocketing}
+Deepfakes are about gaining someone’s trust or influence him. For the last couple of years there has been an increasing trend of scamming people, mostly via phone or computer \cite{HybridVishingAttacksSkyrocketing}. Targeting only one person/victim, for example, to gain their money or information. Those attacks are getting better and more credible and using deepfake to impersonate close friend of victim could be next step how to improve it, if it is not already happening.
 
 Creating “fake news” to influence a large audience is the most common use case of deepfakes because we live in an information era. There are many targets of “fake news” such as rigging elections, demoralizing military units, or manipulating the stock market. In this case, politicians, celebrities, and significant personalities will be used in deepfakes to influence audience. We can only imagine what one person or high quality deepfake can change with enough media reach. For example, after one tweet from Elon Musk about Tesla’s stock, sends shares down more than 10 \% almost immediately \cite{ElonMusksTweets}. \cite{IncreasingThreatofDeepfakeIdentites}
 
-A real example of deepfake is famous video with Barak Obama insulting Donald Trump, which should spread awareness regarding the fast developing category of new threads \footnote{https://www.buzzfeed.com/craigsilverman/obama-jordan-peele-deepfake-video-debunk-buzzfeed}. Several years later another video stating Volodimir Zelenskyj talking about surrendering, it was proved that it is a manipulated video, and its purpose was to demoralize Ukraine army and make them capitulate \footnote{https://www.youtube.com/watch?v=X17yrEV5sl4}.
+A real example of deepfake is famous video with Barak Obama insulting Donald Trump, which should spread awareness regarding the fast developing category of new thread \footnote{\url{https://www.buzzfeed.com/craigsilverman/obama-jordan-peele-deepfake-video-debunk-buzzfeed}}. Several years later another video stating Volodimir Zelenskyj talking about surrendering, it was proved that it is a manipulated video, and its purpose was to demoralize Ukraine army and make them capitulate \footnote{\url{https://www.youtube.com/watch?v=X17yrEV5sl4}}.
 
-Another field where deepfakes could be used is to tricky biometrics systems in which the attacker is a different person to the gain access to the building, to secured equipment, etc. It was proven that biometrics system is not ready to deal with deepfakes, and it will probably require to add a new module to authentication pipeline which will be detecting deepfakes. Face or voice biometrics recognition systems are in greatest danger. The falsification of documents is related to this topic and there was a case of smuggling people across borders with an official passport containing morphed photos of two individuals.
-% TODO: [DawnOfTextDependentSociety], [DigitalFaceManipulation], [MorphingAttackPotential]
+Another field where deepfakes could be used is to tricky biometrics systems in which the attacker is a different person to the gain access (banking, building, ...) \cite{DawnOfTextDependentSociety}, to secured equipment, etc. It was proven that biometrics system is not ready to deal with deepfakes, and it will probably require to add a new module to authentication pipeline which will be detecting deepfakes \cite{DigitalFaceManipulation}. Face or voice biometrics recognition systems are in greatest danger. The falsification of documents is related to this topic and there was a case of smuggling people across borders with an official passport containing morphed photos of two individuals \cite{FaceMorphingAttackDetectionMethods}.
 
-These cases are only the tip of the iceberg, and in the future, everyone should ask if video on social media with film celebrity is real or even worse, if the evidence in courts is trustworthy or not. The solution for this will be easy to use tools capable of detecting deepfakes for unskilled users and also for experts.
+These cases are only the tip of the iceberg, and in the future, everyone should ask if video on social media with film celebrity is real or even worse, if the evidence in courts is trustworthy or not. The solution for this is using tools capable of detecting deepfakes. Those tools have to be created with caution for unskilled users.
 
 \section{Types of deepfakes and their creation process}
 \label{section:deepfakes_creation}
@@ -61,30 +62,45 @@ Each method leaves traces in the medium that can then be detected. This is one w
 
 \subsection{Neural networks}
 
-All the facts regarding neural networks were retrieved from \cite{CreationandDetectionofDeepfakes}. Neural networks are composited from neurons arranged in layers, and each layer is connected sequentially via synapses. Synapses are weighed, and the process of finding the proper value of all weights is called a learning neural network. To obtain results from the input of n-dimensional “x” process “forward-propagation” is used to propagate “x” through each layer.
+All the facts regarding neural networks were retrieved from \cite{CreationandDetectionofDeepfakes}. Neural networks are composited from neurons arranged in layers, and each layer is connected sequentially via synapses. Synapses are weighed, and the process of finding the proper value of all weights is called a learning neural network. To obtain results from the input of \(n\)-dimensional \(x\) process \texttt{forward-propagation} is used to propagate \(x\) through each layer.
 
-Input to layer is vector “a” of values calculated by previous layer or in case of first layer “x” itself. That means result of each layer is also vector calculated by activation function f(a*W+b), where f is activation function (Sigmod, ReLU, etc.), “a” is input vector, W is matrix of weights between layers i and i+1 and b is dimensional bias. Dimensional bias is a constant offset that helps the network shift the activation function toward the positive or negative side \cite{NeuralNetworkBias}.
+Input to layer is vector \(a\) of values calculated by previous layer or in case of first layer \(x\) itself. That means result of each layer is also vector calculated by activation function \(f(a*W+b)\), where \(f\) is activation function (Sigmod, ReLU, etc.), \(a\) is input vector, \(W\) is matrix of weights between layers \(i\) and \(i+1\) and b is dimensional bias. Dimensional bias is a constant offset that helps the network shift the activation function toward the positive or negative side \cite{NeuralNetworkBias}.
 
-Now let’s consider the neural network M as a black box and denote its execution as M(x) = y. Supervise learning to train M is using paired samples with from (xi, yi) and loss function L is defined. Loss function is to generate a signal at the output of M and propagate him back to find error of each weight in synapses.
+Now let’s consider the neural network \(M\) as a black box and denote its execution as \(M(x) = y\). Supervise learning to train \(M\) is using paired samples with from \((x_i, y_i)\) and loss function \(L\) is defined. Loss function is to generate a signal at the output of \(M\) and propagate him back to find error of each weight in synapses.
 
-Optimalization algorithms such as gradient descent are then used to calculate new weights of M for the number of epochs. As a result of this process, the network learns the function M(xi) ~~ yi and is capable of making prediction on unseen data. More detailed descriptions of this could be found in the work of Y. Mirsky and W. Lee \cite{CreationandDetectionofDeepfakes}.
-
+Optimalization algorithms such as gradient descent are then used to calculate new weights of \(M\) for the number of epochs. As a result of this process, the network learns the function \(M(x_i) \approx y_i\) and is capable of making prediction on unseen data. More detailed descriptions of this could be found in the work of Y. Mirsky and W. Lee \cite{CreationandDetectionofDeepfakes}.
+\\\\
 Next list shows types of neural networks used for generating deepfakes \cite{CreationandDetectionofDeepfakes}:
 
 \begin{itemize}
 \item Generative Adversarial Networks (GAN) – Consist of two neural networks working against each other. One layer is generator and second is discriminator. Generator producing fake features trying to fool discriminator, on the other hand, discriminator is learning to distinguish between real sample and fake one.
-\item Encoder-Decoder networks (ED) – Contains at least two networks, encoder and decoder. It has narrowed layers towards its center. If encoder “En” and decoder “De” are symmetric and they are trained as De(En(x)) = x, then the network is called autoencoder. Generating deepfakes using ED trained with function De(En(x)) = xg, where xg is fake generated features. There is possibility to use multiple different ED chained after each other or using specific variant of ED called variational autoencoder.
+\item Encoder-Decoder networks (ED) – Contains at least two networks, encoder and decoder. It has narrowed layers towards its center. If encoder \(En\) and decoder \(De\) are symmetric and they are trained as \(De(En(x)) = x\), then the network is called autoencoder. Generating deepfakes using ED trained with function \(De(En(x)) = x_g\), where \(x_g\) is fake generated features. There is possibility to use multiple different ED chained after each other or using specific variant of ED called variational autoencoder.
 \item Convolutional Neural Network (CNN) – CNN is learning pattern hierarchies in the data. For deepfakes purposes, it learns filters applied over the input and forming an abstract feature map as the output.
 \item Recurrent Neural Networks (RNN) – RNN can handle variable length data and it is remembering stat after processing which can be used in next iteration. RNN are mostly used in audio.
 \end{itemize}
 
-Each category has its own subcategories that have small modifications or using some techniques from different category. 
+Each architecture has its own subcategories that have small modifications or using some techniques from different architecture. All above mentioned neural networks types are shown in \ref{fig:nns_architecture} and \ref{fig:cnn_architecture} 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{other-fig/cnn.png}        
+    \caption{Architecture of convolutional neural network. Retrieved from \cite{CNNArchitecture}.}
+    \label{fig:nns_architecture}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{other-fig/nns.png}        
+    \caption{Basic neural network architectures (RNN, ED, GAN). Retrieved from \cite{CreationandDetectionofDeepfakes}.}
+\label{fig:cnn_architecture}
+\end{figure}
 
 \subsection{Voice deepfakes}
 
 Speech synthesis is divided into two categories based on input data. Text to speech (TTS) converts written text to artificial speech and second category is called voice conversion (VC). The voice conversion consumes source voice, and both methods produce synthesis voice saying desired phrases specified by the input. \cite{ApplicabilityOfDeepfakes}
 
-Voice deepfakes are used independently or with deepfake video (full puppet). Creating synthesis voice is computationally challenging and one of the goals is making real-time voice conversion. There are several projects that are trying to accomplish this \footnote{https://github.com/SolomidHero/real-time-voice-conversion} \footnote{https://www.resemble.ai/speech-to-speech/}.
+Voice deepfakes are used independently or with deepfake video (e.g. full puppet). Creating synthesis voice is computationally challenging and one of the goals is making real-time voice conversion. There are several projects that are trying to accomplish this \footnote{\url{https://github.com/SolomidHero/real-time-voice-conversion}} \footnote{\url{https://www.resemble.ai/speech-to-speech/}}.
 
 \subsection{Image or video deepfakes}
 
@@ -94,32 +110,32 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \item Identity swap – Replacing the face of subject with the face of target as shown in Fig. \ref{fig:idenity_swap}. There are two different approaches, classical computer graphics-based technique and deep learning technique. Generally, the process of swap could be described as face detection, cropping, extraction of intermediate representations, synthesis of new face, and blending the generated face.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.68\linewidth]{other-fig/idenity_swap.png}        
-    \caption{XXX. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
+    \includegraphics[width=.66\linewidth]{other-fig/idenity_swap.png}        
+    \caption{Examples of real and fake identity swap images. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:idenity_swap}
 \end{figure}
 
 \item Full puppet – Method related to identity swap allows creation of so-called puppet. One person (master) is source of facial expression and body movements that are mapped onto target person as shown in Fig. \ref{fig:full_puppet}. \cite{IncreasingThreatofDeepfakeIdentites}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.6\linewidth]{other-fig/full_puppet.png}        
-    \caption{XXX. Retrieved from \cite{TheThreatOfDeepfakes}.}
+    \includegraphics[width=.43\linewidth]{other-fig/full_puppet.png}        
+    \caption{Full puppet technique visualisation. Retrieved from \cite{TheThreatOfDeepfakes}.}
 \label{fig:full_puppet}
 \end{figure}
 
 \item Morphing – It is a type of manipulation that is used to create artificial biometric face samples. Final face contains resemble biometric information of two or more individuals. It should be possible to be successfully verified by biometrics systems for all individuals who were source for given deepfake. Fig. \ref{fig:morphing} shows an example of a morphed image.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.5\linewidth]{other-fig/morphing.png}        
-    \caption{XXX. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
+    \includegraphics[width=.45\linewidth]{other-fig/morphing.png}        
+    \caption{Examples of fake morphed identity from Subject 1 and Subject 2. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:morphing}
 \end{figure}
 
 \item Attribute manipulation – Face editing or face retouching technique involves modifying some attributes such as length or color of hair, color of skin, sex, age, adding glasses or other artefacts, and more. Fig. \ref{fig:attribute_manipulation} shows an example of this technique.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.6\linewidth]{other-fig/attribute_manipulation.png}        
-    \caption{XXX. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
+    \includegraphics[width=.55\linewidth]{other-fig/attribute_manipulation.png}        
+    \caption{Examples of real and fake attribute manipulation category. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:attribute_manipulation}
 \end{figure}
 
@@ -127,7 +143,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \begin{figure}[H]
     \centering
     \includegraphics[width=.64\linewidth]{other-fig/expression_swap.png}        
-    \caption{XXX. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
+    \caption{Examples of real and fake expression swap category. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:expression_swap}
 \end{figure}
 
@@ -135,7 +151,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \begin{figure}[H]
     \centering
     \includegraphics[width=.65\linewidth]{other-fig/audio_to_video.png}        
-    \caption{XXX. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
+    \caption{Examples of real and fake audio/text to video fake category. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:audio_to_video}
 \end{figure}
 \end{itemize}
@@ -145,34 +161,194 @@ Creating deepfakes nowadays is complex task and many deepfakes is using more tec
 \chapter{Deepfake detection}
 \label{chapter:deepfake_detectoin}
 
-\chapter{Analysis of existing tools for detecting deepfakes}
-\section{Deepware}
-    - https://scanner.deepware.ai/developer/
-\section{Deepstar}
-    - https://www.zerofox.com/deepstar-open-source-toolkit/
+As we stated humans are not good in recognizing deepfakes. Creating deepfakes could leave visible defects (e.g. blurring or misalignment on edges in image). A. Firc summarize list of features to focus on while spotting fakes for humans \cite{ApplicabilityOfDeepfakes}.
 
+\begin{itemize}
+\item Facial features – eyes and their movement, eyebrows, glasses, facial expression, hair and facial hair, skin, lips, teeth
+\item Body features – body position and posture, body movements
+\item Voice features – unusual tempo, end of words, fricatives, conversation
+\item General indices - blurring or misalignment on edges, inconsistence noise or audio
+\end{itemize}
+	
+This list pointing to most critical parts of deepfakes where some defects could be spotted created by creation process. Generation of deepfakes are getting better and other masking techniques are used. Huge problem for deepfake detection is lossless compression, several chained resize of image, application of noise etc. Basically, all method that led to some data loss but still maintained main information, means no notable change for naked eye or ear.  Manual post processing could be used for polishing results (images – Photoshop, GIMP; etc) when previous methods are still not good enough.
+
+Machine detection could be divided into two categories, standard algorithms looking for physical inconsistency, digital integrity, using same features as A. Firc described. Other methods are based on machine learning. Same “masking” techniques listed before have a same effect for machine based detection because there is data loss, preventing usage of reliable methods like frequency analysis. Still computers perform better than humans, because they can also use different features (e.g. pixel level features), especially neural networks trained for deepfake detection. In case where we are not looking only for deepfakes but we expend input set to all synthetic media we can use similar methods. Difference will be in learning process (training data) or features selection. Worst case scenario is only recognizing suspicious images containing traces after possible masking techniques such as double compression traces, noise patterns, etc. \cite{MediaForensicsandDeepFakes}
+
+Another problem of detection algorithms is bad generalization. Most of methods are trained on single domain deepfake (e.g. identity swap) that means they are not able recognize deepfake from different category. When methods are trained on multi domain datasets accuracy is going down. \cite{FacialRetouchingAndAlterationDetection}
+
+\section{Image/Video detection methods}
+
+As stated, before most of methods for deepfake detection is targeting only single domain. This section will describe examples of proposed detection methods for image/video deepfakes. There are more conventional approaches and also more “exotic”.
+
+P. Majumdar, et al. referring to multiple detection methods for image retouching (makeup, filters) and alternation (fully synthetize faces, morphing) \cite{FacialRetouchingAndAlterationDetection}. Most of them use same pattern which could be described as specific feature extraction followed by support vector machines (SVM) for classification. One of methods proposed detection of images using face patches as input in the deep Boltzmann machine for feature extraction and SVM for binary classification. Another method uses softmax probabilities as the features in the SVM. Other methods for example using convolutional neural networks. \cite{FacialRetouchingAndAlterationDetection}
+
+L. Spreeiwers, et al. made research on using local binary pattern with SVM for morphing detection \cite{PracticalEvaluationOfFaceMorphingAttackDetectionMethods}. A single LBP histogram contains 59 feature values, which means for a 3 × 3 layout the feature space has 531 dimensions. The SVM classifiers are trained on between 650 and 1,000 samples. They also stated that EER increase to above 20 % while adding Gaussian noise to the deepfakes images.
+
+Non-conventional detection method is heart rate estimation (remote photoplethysmography) by J. Fierret \cite{DetectionBasedOnHeartRateEstimation}. They are trying to estimate hearth rate from video and evaluating frame by frame. There are other human physiological processes that could be used instead heart rate such as blood oxygen or breath rate. Score is oscillating during the video and final decision is based on mean/median/QCD score.
+
+There are many other methods, and each will have its pros and cons but as we can observe SVM classification with large range of different feature extractors. Other rising group of detectors is using CNN. There are not many researches using CNN as SVM but results seems to be promising as we can see in reaeches \cite{3DCNNArchitecturesAndAttentionMechanismsForDeepfakeDetection} \cite{CapsuleForensicsNetworksForDeepfakeDetection}.
+
+\section{Voice detection methods}
+
+Voice detection complicates different languages, it is similar story to image/video deepfakes. There are face swaps, morphing, etc. and for voice there are different languages and dialects. Voice detection methods also coping trend from image/video detection methods. SVM with differete feature extractors or CNNs.
+
+Z. Almutairi and H. Elgibreen referring multiple methods. One of them using SVM model with Random Forest (RF) to predict synthetic voices based on a feature called Short-Term Long-Term. In this research they compared SVM with many other classifiers such as Linear Discriminant, Quadratic Discriminant, Linear SVM, weighted K-Nearest Neighbors (KNN) and SVM outperforms all of them. Other referred work using combination of two CNN, 1-D CNN and Siamese CNN. The Siamese CNN contained two identical CNNs that were the same as the 1-D CNN but concatenated them using a fully connected layer with a softmax output layer. Input to 1-D CNN was the speech log-probabilities. \cite{https://www.mdpi.com/1999-4893/15/5/155}
+
+\section{Analysis of existing tools for detecting deepfakes}
+\subsection{Deepware}
+    - https://scanner.deepware.ai/developer/
+\subsection{Deepstar}
+    - https://www.zerofox.com/deepstar-open-source-toolkit/
+\subsection{Sensity}
+    - https://sensity.ai/deepfakes-detection/
 
 \chapter{Architecture and technologies analysis}
 \section{Requirements}
+
+\noindent Functional requirements:
+\begin{itemize}
+\item možnost přidat, odebrat metodu
+\item více detekčních metod naráz
+\item možnost změnit model metody (přetrénovaný model na jinou datovou sadou)
+    \begin{itemize}
+    \item požadavky na vstupní formát dat zaobaluje detekční metoda
+    \end{itemize}
+\item nahrání fotky, videa, audio nahrávky
+    \begin{itemize} 
+    \item base line - soubor, link        
+    \item chtěné rozšíření - element stránky
+    \end{itemize}
+\item srozumitelná reprezentace výsledků (široká veřejnost)
+\item security (kontrola vstupních dat, zahlcení)
+\item sběr statistik
+    \begin{itemize}
+    \item analýza jaká data je možné ukládat (privacy policy)
+    \end{itemize}
+\item sběr feedbacku
+\end{itemize}
+
+\noindent Non-functional requirements
+\begin{itemize}  
+\item škálovatelnost (jednotky až tisíce uživatelů)
+\item krátká doba odezvy (jednotky, malé desítky sekund)
+\item low cost provoz (cloud -> cena za výpočetní čas)
+\item co nejvetší přenositelnost mezi různými prohlížeči
+\item open-source
+\end{itemize}
+
 \section{Containerazation}
+- docekr, docker-compose, kubernetes, podman, LXC
 \section{Web server}
+- python, c\#, ...
 \section{Web browser plugin}
-\section{Selected detection methods}
+- html, css, typesctipt, ...
+% \section{Selected detection methods}
 
 \chapter{Framework architecture}
-\section{High level architecture}
+
 \section{Containerazation and scaling}
+
+\section{High level architecture}
+\url{https://microservices.io/patterns/microservices.html}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.7\linewidth]{other-fig/framework_architecture.png}        
+    \caption{...}
+    \label{fig:xxx}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{other-fig/framework_architecture_request_processing.png}        
+    \caption{...}
+\label{fig:xxx}
+\end{figure}
+
+\begin{itemize}
+\item /ping
+    \begin{itemize}
+        \item GET /ping – healtcheck
+    \end{itemize}
+\item /detect
+    \begin{itemize}
+        \item POST /detect/file – ...
+        \item POST /detect/link – ...
+    \end{itemize}
+\item /progress
+    \begin{itemize}
+        \item GET /progress/<request\_id> – websocket    
+    \end{itemize}
+\end{itemize}
+
+% GET /auth/key
+% Authorization token (key) renewal.
+% Request Headers
+% X-Api-Key: The last auth key token.
+% Request Content
+% (none)
+% Response Code
+% 200 OK: the success
+% 401 Unauthorized: invalid X-API-Key
+% Response Headers
+% X-Api-Key: The new auth key token.
+% Date: The date and time at which the message was originated (in "HTTP-date" format as defined by RFC 7231 Date/Time Formats).
+% Expires: Gives the date/time after which the response is considered stale (in "HTTP-date" format as defined by RFC 7231).
+% Response Content
+% (none)
+
+
 \section{Input layer}
-\section{Data preparation layer}
-\section{Inividual detection containers}
+\section{Request processing}
+\subsection{Data preparation layer}
+\subsection{Inividual detection method}
+\subsection{Results generalization}
+\section{Output layer}
 
 \chapter{Client architecture}
 \section{Web browser plugin}
 
-\chapter{Framework implementation}
+\begin{figure}[H]
+    \begin{subfigure}[h]{.5\linewidth}
+        \centering
+        \includegraphics[width=1\linewidth]{other-fig/client_wireframe_input_selection.png}
+        \caption{...}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{.475\linewidth}
+        \centering
+        \includegraphics[width=1\linewidth]{other-fig/client_wireframe_input_selection2.png}
+        \caption{...}
+    \end{subfigure}
+    \caption{...}
+    \label{fig:xxx}
+\end{figure}
 
-\chapter{Client implementation}
+\begin{figure}[H]
+    \begin{subfigure}[h]{.475\linewidth}
+        \centering
+        \includegraphics[width=1\linewidth]{other-fig/client_wireframe_results.png}
+        \caption{...}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{.475\linewidth}
+        \centering
+        \includegraphics[width=1\linewidth]{other-fig/client_wireframe_results2.png}
+        \caption{...}
+    \end{subfigure}
+    \caption{...}
+    \label{fig:xxx}
+\end{figure}
 
-\chapter{Test experiment and results}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.4\linewidth]{other-fig/client_wireframe_results3.png}        
+    \caption{...}
+\label{fig:xxx}
+\end{figure}
+% \chapter{Framework implementation}
+
+% \chapter{Client implementation}
+
+% \chapter{Test experiment and results}
 
 \chapter{Conclusion}

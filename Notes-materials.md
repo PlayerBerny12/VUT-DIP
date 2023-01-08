@@ -244,3 +244,4 @@ https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9115874
     - despite the continuous research efforts and the numerous forensic tools developed in the past, the advent of deep learning is changing the rules of the game and asking multimedia forensics for new and timely solutions
 
 ## Anton Firc, Kamil Malinka: The dawn of a text-dependent society: deepfakes as a threat to speech verification systems
+...
