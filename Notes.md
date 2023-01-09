@@ -42,9 +42,11 @@ Video:
 - https://github.com/selimsef/dfdc_deepfake_challenge
 - https://github.com/dessa-oss/DeepFake-Detection
 - https://github.com/bbvanexttechnologies/fakeVideoForensics
+- https://www.zerofox.com/deepstar-open-source-toolkit/ (old python 3.6.8, problem with pipenv (have to downgraded))
 Audio:
 - https://github.com/MarkHershey/AudioDeepFakeDetection
 - https://github.com/piotrkawa/specrnet
+
 
 # Architektura framework
 1. Předdefinovaný request processing a pro každý požadavek spinnovat nové konteinery
