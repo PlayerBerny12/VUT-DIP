@@ -1,9 +1,10 @@
 \chapter{Introduction}
 
-- deepfake is buzzword (no agreed-upon technical definition)
-- still growing thread for sociaty
-- huge research over past years
-- reason for creating this framework
+Deefake is the buzzword that has no agreed-upon technical definition. It consists of two words deep and fake. Deep is referring to deep learning machine learning, which is used for creating of fake voices, images, or even videos. It is a fast-growing technical field of study and could be big threat for society. Ware living in information era and creation of unrecognizable fake media affects us all. Deepfakes could be found on social media, news portals, etc.
+
+There are many different deepfake categories for face swap to full puppet and more. Most of the detection methods are focused on a single domain, which means they are capable of detecting only a one deepfake category. There are few tools in market targeting to undemanding/inexperienced users, and some of them are not free to use.
+
+The goal of this work is to examine the current state of deepfakes, first, generally, with later focus to detection methods. Based on the acquired knowledge design and develop the fake detection framework and client application utilizing it.
 
 \chapter{Deepfakes}
 
@@ -305,46 +306,77 @@ Basically all named technologies meet defined requirements (response time, numbe
 
 Web plugins are based on web technologies such as HTML, CSS, JavaScript, TypeScript, etc. There are also technologies like WebAssembly which allow development of web applications in languages like C++ without usage of web framework. Because of portability and good integration we will choose HTML, CSS, and Typescript. Typescript is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is also compiled into JavaScript. With those technologies we could be able to create portable web plugin for Chromium base browsers and Firefox.
 
-% \section{Selected detection methods}
-
 \chapter{Framework architecture}
 
-\section{Containerazation and scaling}
+The architecture must reflect that each detection method could be developed in different architectures. We can isolate the detection methods from each other and wrap them into independent services. We do not need communication among all detection methods because they do not cooperate or share any data. In this case, the microservice architecture meets all defined requirements.
 
-\section{High level architecture}
-\url{https://microservices.io/patterns/microservices.html}
+\section{Microservice architecture}
+
+Microservice architecture is the style of developing applications. Example of design can be observe in Fig. \ref{fig:microservice_architecture}. The microservice allows the application to be separated into smaller logical independent parts. The service then has its own realm of responsibility and they can communicate with each other. Containers are a well-suited microservice architecture example. \cite{WhatIsMicroservicesArchitecture}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.5\linewidth]{other-fig/microservice_architecture.png}        
+    \caption{Microservice architecture of fictitious e-commerce application}
+    \label{fig:microservice_architecture}
+\end{figure}
+
+Microservices improve fault isolation that non-functional service should not affect others, in best case scenario. In real cases microservices depend on each other and this might lead to a problem. For example, if one service contains a memory leak, it is not propagated into other ones. Another benefit was already mentioned, and it eliminates commitment to one technology stack. One service has better maintainability because it should be small (better understandability, faster tools), which leads to more productive developers. \cite{ MicroserviceArchitecture}
+
+This architecture also has several drawbacks. It increases the complexity of architectural design and additional implementation of cross-service communication. When saving data to database, developers have to deal with distributed system because each service has its own independent database. \cite{ MicroserviceArchitecture}
+
+\section{High-level architecture}
+
+The user communicates directly with the Rest API endpoint. This part of the design may be labelled as master process because it is handling request, preparing and validating data, selecting which type of processing should be used. After processing is done, it collects all results and distributes them back to the user. Fig. \ref{fig:framework_architecture} contains high-level design of framework with data flow.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=.7\linewidth]{other-fig/framework_architecture.png}        
-    \caption{...}
-    \label{fig:xxx}
+    \caption{High-level design of whole framework}
+    \label{fig:framework_architecture}
 \end{figure}
+
+The architecture separates voice, image, and video detection into an independent unit. Each unit contains a processing queue where the request will be assigned by the master process/Rest API. The queue is serviced by one or multiple processing units that contain all related detection methods as shown in Fig. \ref{fig:framework_architecture_request_processing}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.65\linewidth]{other-fig/framework_architecture_request_processing.png}        
-    \caption{...}
-\label{fig:xxx}
+    \caption{Request processing detail}
+\label{fig:framework_architecture_request_processing}
 \end{figure}
 
-\begin{itemize}
-\item /ping
-    \begin{itemize}
-        \item GET /ping – healtcheck
-    \end{itemize}
-\item /detect
-    \begin{itemize}
-        \item POST /detect/file – ...
-        \item POST /detect/link – ...
-    \end{itemize}
-\item /progress
-    \begin{itemize}
-        \item GET /progress/<request\_id> – websocket    
-    \end{itemize}
-\end{itemize}
+The processing unit works as a parallel pipeline. Closer look at design is in Fig. \ref{fig:framework_architecture_processing_unit}. Some detection methods require input data in specific format, so the first step is optional data preparation. Some methods are wrapping data preparation by themselves. The next step is the detection method that decides whether the input data contains deepfake or not. Detection methods are different, so are their results, so we need to properly generalize and also normalize them.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.65\linewidth]{other-fig/framework_architecture_processing_unit.png}        
+    \caption{Processing unit pipeline}
+\label{fig:framework_architecture_processing_unit}
+\end{figure}
+
+\section{Containerization and scaling}
+
+Detection methods have to be containerized, and to decrease complexity data preparation and results generalization will be encapsulated together with detection method. The processing unit then will be the collection of containers or pods.
+
+The processing unit then can be clone/scale up when needed to process more requests. Scaling up can be done automatically by setting specific rule in container orchestrator. To save costs we can scale down when a peek of request disappeared.
 
 % \section{Input layer}
+
+% \begin{itemize}
+% \item /ping
+%     \begin{itemize}
+%         \item GET /ping – healtcheck
+%     \end{itemize}
+% \item /detect
+%     \begin{itemize}
+%         \item POST /detect/file – ...
+%         \item POST /detect/link – ...
+%     \end{itemize}
+% \item /progress
+%     \begin{itemize}
+%         \item GET /progress/<request\_id> – websocket    
+%     \end{itemize}
+% \end{itemize}
 
 % GET /auth/key
 % Authorization token (key) renewal.
@@ -369,51 +401,74 @@ Web plugins are based on web technologies such as HTML, CSS, JavaScript, TypeScr
 % \section{Output layer}
 
 \chapter{Client architecture}
+
+The use case of the client application is straightforward, so there does not need to be use case or data flow diagrams. The application will try to prepare the file for inspection and send it to the server framework. The next section contains several wireframes of how the client application should look like with description.
+
 \section{Web browser plugin}
+
+It should allow the user to insert a file via file upload, link, or HTML element containing a targeted file. In Fig.\ref{fig:client_wireframe_input_selection} we can see type insertion selection, for file upload the user will be prompted by system file upload picker. When user pick link as input, floating windows will pop up, and user then can insert URL to file. Those two selections are the same as other tools in market also provide. Optional improvement will be element selection which switches the application to interactive mode where user can point to HTML element and application will try to retrieve metadata of image or video directly from HTML. 
 
 \begin{figure}[H]
     \begin{subfigure}[h]{.5\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{other-fig/client_wireframe_input_selection.png}
-        \caption{...}
+        \caption{Input type selection}
     \end{subfigure}
     \hfill
     \begin{subfigure}[h]{.475\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{other-fig/client_wireframe_input_selection2.png}
-        \caption{...}
-    \end{subfigure}
-    \caption{...}
-    \label{fig:xxx}
+        \caption{Link input in floating window}
+    \end{subfigure}    
+    \caption{Input type selection screens}
+    \label{fig:client_wireframe_input_selection}
 \end{figure}
+
+Because detection framework will contain several detections method we need to show the result of each method independently. It could be a little confusing for user so there will also be overall score which interprets/generalizes all the results of each method. The overall score will indicate the results as a percentage and as emoticon. The palette will contain four emoticons shown in Fig \ref{fig:client_wireframe_results3}. For better understanding there are question marks in the UI that after mouse hover shows tooltip with description. Whole results screen can be view in Fig. \ref{fig:client_wireframe_results}.
 
 \begin{figure}[H]
     \begin{subfigure}[h]{.475\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{other-fig/client_wireframe_results.png}
-        \caption{...}
+        \caption{Results view}
     \end{subfigure}
     \hfill
     \begin{subfigure}[h]{.475\linewidth}
         \centering
         \includegraphics[width=1\linewidth]{other-fig/client_wireframe_results2.png}
-        \caption{...}
-    \end{subfigure}
-    \caption{...}
-    \label{fig:xxx}
+        \caption{Tooltip showing description one of detection method}
+    \end{subfigure} 
+    \caption{Results view screens}
+    \label{fig:client_wireframe_results}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=.4\linewidth]{other-fig/client_wireframe_results3.png}        
-    \caption{...}
-\label{fig:xxx}
+    \caption{Palette of emoticons indicating if inspected file contains deepfake or not}
+\label{fig:client_wireframe_results3}
+\end{figure}
+
+At the bottom of each screen there is an icon that enables the user to the send feedback to application. After clicking on this icon floating window will appear, shown in Fig \ref{fig:client_wireframe_feedback}. When user will be sending feedback on the result page, the internal result ID will be added as an additional parameter to the feedback message. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.475\linewidth]{other-fig/client_wireframe_feedback.png}        
+    \caption{Feedback form in floating window}
+\label{fig:client_wireframe_feedback}
 \end{figure}
 
 % \chapter{Framework implementation}
+% \section{Selected detection methods}
 
 % \chapter{Client implementation}
 
 % \chapter{Test experiment and results}
 
 \chapter{Conclusion}
+
+As Theodor Roosevelt once said: “Believe you can and you're halfway there.” I believed and now this thesis is halfway to finish line. All set requirements and set goals were met, so we can consider the first part to be successfully completed.
+
+The thesis covers general knowledge about deepfakes and their generation and describes several methods for detecting them. At the end there is an architectural design of the detection framework and also client app utilizing it.
+
+The next steps will include extending little bit deeper architecture, finding a suitable detection method for integration to framework. When all this will be finished, implementation itself can be started. There is still a lot of work to do and hopefully all subsequent steps and intermediate results will be promising and lead to a successful end.
