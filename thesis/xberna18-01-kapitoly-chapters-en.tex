@@ -1,6 +1,6 @@
 \chapter{Introduction}
 
-Deefake is the buzzword that has no agreed-upon technical definition. It consists of two words deep and fake. Deep is referring to deep learning machine learning, which is used for creating of fake voices, images, or even videos. It is a fast-growing technical field of study and could be big threat for society. Ware living in information era and creation of unrecognizable fake media affects us all. Deepfakes could be found on social media, news portals, etc.
+Deefake is the buzzword that has no agreed-upon technical definition. It consists of two words deep and fake. Deep is referring to deep learning machine learning, which is used for creating of fake voices, images, or even videos. It is a fast-growing technical field of study and could be big threat for society. We are living in information era and creation of unrecognizable fake media affects us all. Deepfakes could be found on social media, news portals, etc.
 
 There are many different deepfake categories for face swap to full puppet and more. Most of the detection methods are focused on a single domain, which means they are capable of detecting only a one deepfake category. There are few tools in market targeting to undemanding/inexperienced users, and some of them are not free to use.
 
@@ -98,9 +98,16 @@ Each architecture has its own subcategories that have small modifications or usi
 
 \subsection{Voice deepfakes}
 
-Speech synthesis is divided into two categories based on input data. Text to speech (TTS) converts written text to artificial speech and second category is called voice conversion (VC). The voice conversion consumes source voice, and both methods produce synthesis voice saying desired phrases specified by the input. \cite{ApplicabilityOfDeepfakes}
+There are three different modalities for speech synthesis: text-to-speech (TTS), voice cloning (VC), and replay attack (RA). \cite{Deepsonar} The last fine is based on the capture victim voice and the replay of it. It is quite easy and cheap to perform  because it only requires capture and replay device (today we can use for example smartphone) and current methods for voice recognition still have accuracy issues. \cite{ReplayAttackDetection} First two are using AI-synthesis with content regeneration which makes them more indistinguishable for naked ears. \cite{Deepsonar}
 
-Voice deepfakes are used independently or with deepfake video (e.g. full puppet). Creating synthesis voice is computationally challenging and one of the goals is making real-time voice conversion. There are several projects that are trying to accomplish this \footnote{\url{https://github.com/SolomidHero/real-time-voice-conversion}} \footnote{\url{https://www.resemble.ai/speech-to-speech/}}.
+Text to speech (TTS) converts written text to artificial speech, on the other hand voice cloning consumes source voice. Both methods produce synthesis voice saying desired phrases specified by the input, high-level diagram how those methods works could be seen on Fig. \ref{fig:tts_vs}. Voice deepfakes are used independently or with deepfake video (e.g. full puppet). Creating synthesis voice is computationally challenging and one of the goals is making real-time voice cloning. There are several projects that are trying to accomplish this 3 4.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.62\linewidth]{other-fig/tts_vc.png}        
+    \caption{Text-to-speech and voice cloning data flow diagram. Retrieved from \cite{Deepsonar}.}
+\label{fig:tts_vs}
+\end{figure}
 
 \subsection{Image or video deepfakes}
 
@@ -110,7 +117,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \item Identity swap – Replacing the face of subject with the face of target as shown in Fig. \ref{fig:idenity_swap}. There are two different approaches, classical computer graphics-based technique and deep learning technique. Generally, the process of swap could be described as face detection, cropping, extraction of intermediate representations, synthesis of new face, and blending the generated face.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.66\linewidth]{other-fig/idenity_swap.png}        
+    \includegraphics[width=.53\linewidth]{other-fig/idenity_swap.png}        
     \caption{Examples of real and fake identity swap images. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:idenity_swap}
 \end{figure}
@@ -118,7 +125,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \item Full puppet – Method related to identity swap allows creation of so-called puppet. One person (master) is source of facial expression and body movements that are mapped onto target person as shown in Fig. \ref{fig:full_puppet}. \cite{IncreasingThreatofDeepfakeIdentites}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.43\linewidth]{other-fig/full_puppet.png}        
+    \includegraphics[width=.41\linewidth]{other-fig/full_puppet.png}        
     \caption{Full puppet technique visualisation. Retrieved from \cite{TheThreatOfDeepfakes}.}
 \label{fig:full_puppet}
 \end{figure}
@@ -134,7 +141,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \item Attribute manipulation – Face editing or face retouching technique involves modifying some attributes such as length or color of hair, color of skin, sex, age, adding glasses or other artefacts, and more. Fig. \ref{fig:attribute_manipulation} shows an example of this technique.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.55\linewidth]{other-fig/attribute_manipulation.png}        
+    \includegraphics[width=.52\linewidth]{other-fig/attribute_manipulation.png}        
     \caption{Examples of real and fake attribute manipulation category. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:attribute_manipulation}
 \end{figure}
@@ -142,7 +149,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \item Expression swap – Modifying facial expression of the subject as shown in Fig. \ref{fig:expression_swap}. This technique is used as one of part for full puppet.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.64\linewidth]{other-fig/expression_swap.png}        
+    \includegraphics[width=.52\linewidth]{other-fig/expression_swap.png}        
     \caption{Examples of real and fake expression swap category. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:expression_swap}
 \end{figure}
@@ -150,7 +157,7 @@ The list of the following deepfakes is based on the work R. Tolosana, et al. \ci
 \item Audio/text to video – This method related to expression swap synthesising facial expression from audio or text. It is also known as lip-sync deepfakes. Diagram in Fig. \ref{fig:audio_to_video} shows how this method works.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=.65\linewidth]{other-fig/audio_to_video.png}        
+    \includegraphics[width=.6\linewidth]{other-fig/audio_to_video.png}        
     \caption{Examples of real and fake audio/text to video fake category. Retrieved from \cite{IntroductionToDigitalFaceManipulation}.}
 \label{fig:audio_to_video}
 \end{figure}
@@ -190,9 +197,9 @@ There are many other methods, and each will have its pros and cons, but as we ca
 
 \section{Voice detection methods}
 
-Voice detection complicates different languages; it is similar story to image/video deepfakes. There are face swaps, morphing, etc., and for voice there are different languages and dialects. Voice detection methods also copying trend from image/video detection methods. SVM with different feature extractors or CNNs.
+Voice detection complicates different languages; it is similar story to image/video deepfakes. There are face swaps, morphing, etc., and for voice there are different languages and dialects. Voice detection methods also copying trend from image/video detection methods. Support vector machines (SVM) with different feature extractors or CNNs.
 
-Z. Almutairi and H. Elgibreen refer to multiple methods \cite{ReviewOfModernAudioDeepfakeDetectionMethods}. One of them uses the SVM model with Random Forest (RF) to predict synthetic voices based on a feature called Short-Term Long-Term. In this research, they compared SVM with many other classifiers such as Linear Discriminant, Quadratic Discriminant, Linear SVM, weighted K-Nearest Neighbors (KNN), and SVM outperforms all of them. Other referred work uses combination of two CNN, 1-D CNN and Siamese CNN. The Siamese CNN contained two identical CNNs that were the same as the 1-D CNN but concatenated them using a fully connected layer with a softmax output layer. Input to 1-D CNN was the speech log-probabilities. \cite{ReviewOfModernAudioDeepfakeDetectionMethods}
+Z. Almutairi and H. Elgibreen refer to multiple methods \cite{ReviewOfModernAudioDeepfakeDetectionMethods}. One of them uses the SVM model with Random Forest to predict synthetic voices based on a feature called Short-Term Long-Term. In this research, they compared SVM with many other classifiers such as Linear Discriminant, Quadratic Discriminant, Linear SVM, weighted K-Nearest Neighbors, and SVM outperforms all of them. Other referred work uses combination of two CNN, 1-D CNN and Siamese CNN. The Siamese CNN contained two identical CNNs that were the same as the 1-D CNN but concatenated them using a fully connected layer with a softmax output layer. \cite{ReviewOfModernAudioDeepfakeDetectionMethods}
 
 \section{Analysis of existing tools for detecting deepfakes}
 
@@ -356,49 +363,47 @@ The processing unit works as a parallel pipeline. Closer look at design is in Fi
 
 \section{Containerization and scaling}
 
-Detection methods have to be containerized, and to decrease complexity data preparation and results generalization will be encapsulated together with detection method. The processing unit then will be the collection of containers or pods.
+Detection methods have to be containerized, and to decrease complexity data preparation and results generalization will be encapsulated together with detection method. The processing unit then will be the collection of containers/pods.
 
 The processing unit then can be clone/scale up when needed to process more requests. Scaling up can be done automatically by setting specific rule in container orchestrator. To save costs we can scale down when a peek of request disappeared.
 
-% \section{Input layer}
+\section{API Endpoint}
 
-% \begin{itemize}
-% \item /ping
-%     \begin{itemize}
-%         \item GET /ping – healtcheck
-%     \end{itemize}
-% \item /detect
-%     \begin{itemize}
-%         \item POST /detect/file – ...
-%         \item POST /detect/link – ...
-%     \end{itemize}
-% \item /progress
-%     \begin{itemize}
-%         \item GET /progress/<request\_id> – websocket    
-%     \end{itemize}
-% \end{itemize}
+As mentioned before, API endpoints communicate directly with user application and with backend processing mechanism. Processing takes same time, so user application creates request and wait asynchronously to be processed by the framework. The API for this purpose contains “detect” and “request” methods. “Detect” methods start processing and“requests” methods manage already running process. There are other support methods for possible health check or providing feedback. All methods are described in following list:
 
-% GET /auth/key
-% Authorization token (key) renewal.
-% Request Headers
-% X-Api-Key: The last auth key token.
-% Request Content
-% (none)
-% Response Code
-% 200 OK: the success
-% 401 Unauthorized: invalid X-API-Key
-% Response Headers
-% X-Api-Key: The new auth key token.
-% Date: The date and time at which the message was originated (in "HTTP-date" format as defined by RFC 7231 Date/Time Formats).
-% Expires: Gives the date/time after which the response is considered stale (in "HTTP-date" format as defined by RFC 7231).
-% Response Content
-% (none)
+\begin{itemize}
+\item /ping
+    \begin{itemize}
+    \item GET /ping – healtcheck endpoint
+    \end{itemize}
+\item /detect
+    \begin{itemize}
+    \item POST /detect/file – creates request with file in HTTP request body
+    \item POST /detect/link – creates request with link to a file in HTTP request body
+    \end{itemize}
+\newpage
+\item /request
+    \begin{itemize}
+    \item GET /request/stop/<request\_id> - stops running request
+    \item GET /request/results/ – returns results of processed request or empty results if request is in process    
+    \end{itemize}
+\item /feedback
+    \begin{itemize}
+    \item POST /feedback/<request\_id> - collects user feedback with optional parameter request\_id
+    \end{itemize}
+\end{itemize}
 
-% \section{Request processing}
-% \subsection{Data preparation layer}
-% \subsection{Inividual detection method}
-% \subsection{Results generalization}
-% \section{Output layer}
+Each detection method has different processing times. There are two options to return results to user: partial results from the detection methods already completed or returns only when everything is completed. Because there is no need to show partial results, the second option will be used. This requires the use of another queue for respons or some sort of database. The framework needs to calculate the overall score and this requires all results from all methods. Calculating the total score requires considering the univariate methods as well as their domain differences. A single method will usually focus on a single domain (e.g. face swap). We leave the exact definition to the implementation section.
+
+The method \texttt{/request/results} could be possibly replaced by websockets which will increase complexity, but on the other hand a user application could better report status of the running process. It is one of the possible extensions to the framework.
+
+\section{Request processing and processing unit}
+
+API endpoint placing all new requests in the request queue. One of the available processing units takes the first request form queue. This request contains all the information such request ID, data for detection, and metadata for this data.
+
+The first step in the processing pipeline is optional data preparation. The detection method could be trained only on a specific resolution of the video/image or on a specific length of the voice sample. This means data processing unit has to be designed for a given detection method. When data are prepared for detection, they continue to the detection unit.
+
+After detection, the same case as optional data preparation is optional data generalization/normalization. Because results need to the be correctly presented to user and the framework needs to calculate over all scores, all results need to the be normalized to same scale and “units”. When results contain more specific information, in this case it needs to be generalized. Results could contain field with additional/extra information about results which could also be presented to the user. Results are then pushed to the results queue or database, depending on implementation.
 
 \chapter{Client architecture}
 
