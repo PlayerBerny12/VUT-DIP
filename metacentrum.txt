@@ -1,0 +1,28 @@
+1. Nastavit heslo v: https://perun.cesnet.cz/fed/gui/
+  - změna trvá několik minut
+2. Připojit se na frontend a uložišť (seznam: https://docs.metacentrum.cz/access/log-in/)
+  ssh username@frontend
+3. Příprava dat a scriptů
+  pro normální množství dat (MBs, max jednotky GB lze využít frontend, jinak připojovat přímo na NFS4 servery)
+  lepší uploadovat zipnuté věci a rozbalit to na clusteru
+  a. scp
+    pro normální množství dat: 
+      scp -r my_dir username@frontend: # copy directory "my_dir" from user's PC to a home directory on skirit
+      scp -r username3@frontend:~/results . # from user's home on skirit, copy to user's PC folder "results"
+    pro větší množství dat:
+      scp user123@storage-brno2.metacentrum.cz
+  b. sftp (Filezzila)
+      server: sftp://frontend
+4. request clusteru (https://metavo.metacentrum.cz/pbsmon2/qsub_pbspro) 
+5. přípava clusteru
+    trap 'clean_scratch' TERM EXIT
+    DATADIR=/storage/city/home/username/...
+    cp $DATADIR/input $SCRATCHDIR
+    cd $SCRATCHDIR
+    
+    module add ...
+    
+    *do your job*
+
+    cp $SCRATCHDIR/output $DATADIR
+    exit
