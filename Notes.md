@@ -87,3 +87,10 @@ Audio:
 - low cost provoz (cloud -> cena za výpočetní čas)
 - co nejvetší přenositelnost mezi různými prohlížeči
 - open-source
+
+## Posibble vylepšení
+- škálovat pouze jednotlivé metody
+- když umře pod v k8s tak by to mělo timeoutnout
+- rabbitmq pro asynchroní zprávy... trochu overkill, ale okay -> použití do budoucnosti při nějakých změnách
+- jednotlivé detekční metody zabalit do obdelínků v architektuře jako že jsou to jednotlivé containery
+- potenciálně nahradit rabbitmq za kubernetes service loadbalancing (queue???) - asi to není úplně ok ale můžu pospat že jsem to vzal v úvahu??
