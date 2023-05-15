@@ -1,7 +1,7 @@
 # Master thesis
 ## Deepfake Detection Framework
 
-**Autor:** Bernard Jan, Bc. - xberna18@stud.fit.vutbr.cz \
+**Author:** Bernard Jan, Bc. - xberna18@stud.fit.vutbr.cz \
 **Supervisor:** Malinka Kamil, Mgr., Ph.D. (UITS FIT VUT) - malinka@fit.vut.cz
 
 ---
