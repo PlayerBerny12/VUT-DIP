@@ -138,11 +138,11 @@
   supervisor.title.p={Mgr.},   %titul před jménem (nepovinné) / title before the name (optional)
   supervisor.title.a={Ph.D.},    %titul za jménem (nepovinné) / title after the name (optional)
   % Klíčová slova / keywords
-  keywords.cs={deepfake, framework, detekce deepfake, kontejnerizace, webový doplňek}, % klíčová slova v českém či slovenském jazyce / keywords in czech or slovak language
-  keywords.en={deepfake, framework, deepfake detection, containerazation, web plugin}, % klíčová slova v anglickém jazyce / keywords in english
+  keywords.cs={deepfake, framework, detekce deepfake, kontejnerizace, doplněk webového prohlížeče}, % klíčová slova v českém či slovenském jazyce / keywords in czech or slovak language
+  keywords.en={deepfake, framework, deepfake detection, containerazation, web browser extension}, % klíčová slova v anglickém jazyce / keywords in english
   %keywords.en={Here, individual keywords separated by commas will be written in English.},
   % Abstrakt / Abstract
-  abstract.cs={Tvorba deepfake se za poslední dobu velmi zlepšila a tudíž je obávanou hroznou pro společnost. Detekční metody odhalující deepfake také reagovali rozvojem, ale stále není široké veřejnosti dostupné dostatečné množství dobrých nástrojů. Tato práce se zaměřuje na vytvoření frameworku na detekci deepfake, který bude jednoduše rozšiřitlený dalšími detekčními metodami v budounu a přitom jednoduchý a dostupný široké veřejnosti. }, % abstrakt v českém či slovenském jazyce / abstract in czech or slovak language
+  abstract.cs={Tvorba deepfake se za poslední dobu velmi zlepšila a tudíž je obávanou hroznou pro společnost. Detekční metody odhalující deepfake také reagovali rozvojem, ale stále není široké veřejnosti dostupné dostatečné množství kvalitních nástrojů. Tato práce se zaměřuje na vytvoření frameworku na detekci deepfake, který bude jednoduše rozšiřitlený dalšími detekčními metodami v budounu a přitom jednoduchý a dostupný široké veřejnosti. }, % abstrakt v českém či slovenském jazyce / abstract in czech or slovak language
   abstract.en={Deepfake creation has improved a lot in recent times and hence is a dreaded menace to society. Deepfake detection methods have also responded with development, but there are still not enough good tools available to the general public. This work focuses on creating a deepfake detection framework that will be easily extended by other detection methods in the future, yet simple and accessible to the general public.}, % abstrakt v anglickém jazyce / abstract in english
   %abstract.en={An abstract of the work in English will be written in this paragraph.},
   % Prohlášení (u anglicky psané práce anglicky, u slovensky psané práce slovensky) / Declaration (for thesis in english should be in english)
@@ -158,7 +158,25 @@ I have listed all the literary sources, publications and other sources, which we
   acknowledgment={I would like to sincerely thank my supervisor Mgr. Kamil Malinka Ph.D. for all the advice and insightful comments. The same thanks go to consultant Ing. Anton Firc. \\
 I also owe a debt of gratitude to my family, especially my parents, friends for their wonderful support throughout my studies.},
   % Rozšířený abstrakt (cca 3 normostrany) - lze definovat zde nebo níže / Extended abstract (approximately 3 standard pages) - can be defined here or below
-  extendedabstract={...},
+  extendedabstract={
+    Deepfake je modní slovo, které nemá ustálenou žádnou technickou definici. Jedná se o kombinaci slov, deep a fake. Deep referuje na techniku hlubokého strojového učení a fake zase na tvorbu falešných digitálních médií.
+    
+    Tvorba deepfake se za poslední dobu velmi zlepšila, její využití je velké například ve filmové produkci. Dříve bylo nutné mít pro tvorbu falešných nebo jinak modifikovaných digitálních medií určité znalosti nebo schopnosti. Byly využívané nástroje jako GIPM, Adobe Photoshop nebo Adobe Afer Effects. Dnes existují nástroje poháněné umělou inteligencí, které umožňují tvorbu deepfake téměř komukoliv. Vytváření deepfake ovšem nemusí být použito pouze ke správným účelům. Tudíž může být považováno za obávanou hroznou pro společnost.
+    
+    Jedná se o rychle rozvíjející se obor. Detekční metody odhalující deepfakes také reagovali rozvojem, ale stále není široké veřejnosti dostupné dostatečné množství kvalitních nástrojů. Problémem je velké množství různých technik pro tvorbu jako jsou face swap, morphing a mnohé další. Detekční metody jsou většinou schopné efektivně detekovat pouze jeden typ deepfake. Většina detekčních dnes využívá různé typy features extraktorů s SVM (support vector machines) klasifikátorem. Existují i více „exotické“ přístupy jakožto odhad srdeční frekvence z videa. 
+    
+    Proto vznikl záměr vytvořit framework, který umožňuje integraci různých detekčních metod. Tím by byl odbouraný problém detekce pouze jednoho typu a také by se tento framework mohl použít pro porovnávaní s již existujícími detekčními metodami. Cílem této práce je tvorba právě takového frameworku.
+    
+    V první části této práce naleznete obecné informace o deepfakes jako jsou potenciální hrozby a bezpečnostní rizika s popisem již úspěšných útoků, různé typy deepfakes pro hlas, obrázky a video. Byl také provedena analýza trhu s dostupnými detekčními nástroji.
+    
+    V druhé části je popsaný celý proces vývoje frameworku a klientské aplikace, která má umožnit práci s frameworkem i běžným uživatelům. Proveden byl i detailní návrh zabývající se hlavní funkcionalitou i podpornými systémy. Následně byl framework podle tohoto návrhu implementován a také byly integrovány některé open source detekční metody. Stejný proces byl aplikován i u tvorby klientské aplikace.
+    
+    Framework je navržen jakožto mikroservice aplikace, která využívá kontejnerový orchestrátor Kubernetes. Vstupním bodem je ASP.NET Core REST API, které vytvoří žádost na zpracování a pošle ji skrze message brokera Reuqest Processing jednotkám. Jednotky obsahují jednotlivé detekční metody a po vyhodnocení žádosti vrací výsledky zpět ASP.NET Core aplikaci. Framework umožňuje automatické škálování na základě počtu zaslaných žádostí, což zajistí vysokou dostupnost při relativně nízkých nákladech na provoz.
+    
+    Pro otestování funkčnosti jsou vytvořeny tři testovací scénáře, které testují spolehlivost, spotřebu zdrojů a schopnost práce v zatížení. Byly také provedeny testy přesnost integrovaných detekčních metod. Framework byl nasazen do Azure AKS a na této instanci byly provedeny všechny testy. Celkově prošlo frameworkem při testování přes 2200 souborů z pěti různých deepfake datasetů jako jsou ASV2021, LJ Speech, WafeFake, CelebDF a FaceForensics++.
+    
+    Výsledky byly vyhodnoceny a popsány na konci této práce. Přesnost jednotlivých metod pochybná a určitě by bylo přínosné vyzkoušet natrénovat metody na robustnějších datasetech nebo zkusit integrovat jiné. Celkově se výsledky testů dají prohlásit za úspěšné, protože framework operoval spolehlivě několik desítek hodin a byl schopen zpracovat téměř veškeré zaslané požadavky. Testy také ověřilu schopnosti škálovatelnosti frameworku.
+  },
   extabstract.odd={true}, % Začít rozšířený abstrakt na liché stránce? / Should extended abstract start on the odd page?
   %faculty={FIT}, % FIT/FEKT/FSI/FA/FCH/FP/FAST/FAVU/USI/DEF
   faculty.cs={Fakulta informačních technologií}, % Fakulta v češtině - pro využití této položky výše zvolte fakultu DEF / Faculty in Czech - for use of this entry select DEF above
